@@ -6,23 +6,27 @@ A collection of LangChain examples demonstrating different types of models and t
 
 ```
 Models/
-├── 1_LLMs/                    # Basic Language Model examples
-│   └── 1_llm_demo.py         # Simple LLM demonstration
+├── 1_LLMs/                         # Basic Language Model examples
+│   └── 1_llm_demo.py              # Simple LLM demonstration
 │
-├── 2_ChatModels/              # Chat Model implementations
-│   ├── 1_openai.py          # OpenAI Chat Model example
-│   ├── 2_claude.py           # Anthropic Claude Chat Model
-│   ├── 3_google.py           # Google Gemini Chat Model
-│   └── 4_huggingface.py      # Hugging Face Chat Model
+├── 2_ChatModels/                   # Chat Model implementations
+│   ├── 1_openai.py                # OpenAI Chat Model example
+│   ├── 2_claude.py                # Anthropic Claude Chat Model
+│   ├── 3_google.py                # Google Gemini Chat Model
+│   └── 4_huggingface.py           # Hugging Face Chat Model
 │
-├── 3_EmbeddingModels/         # Embedding Model examples
-│   ├── 1_openai_query.py    # OpenAI embedding query example
-│   ├── 2_openai_docs.py     # OpenAI document embeddings
-│   └── 3_document_similarity.py  # Document similarity using embeddings
+├── 3_EmbeddingModels/              # Embedding Model examples
+│   ├── 1_openai_query.py          # OpenAI embedding query example
+│   ├── 2_openai_docs.py           # OpenAI document embeddings
+│   └── 3_document_similarity.py   # Document similarity using embeddings
 │
-├── 2_openai_docs.py          # Additional OpenAI documentation example
-├── requirements.txt          # Python dependencies
-└── test.py                   # Test file
+Prompts/                            # Prompt templates and research UI
+├── prompt_generator.py            # Creates and saves prompt template JSON
+├── prompt_template.py             # Simple prompt template example
+├── prompt_ui.py                   # Streamlit research paper explainer
+└── template.json                  # Saved prompt template definition
+
+test.py                            # Test file
 ```
 
 ## Setup
@@ -30,7 +34,6 @@ Models/
 1. Install dependencies:
 
 ```bash
-cd Models
 pip install -r requirements.txt
 ```
 
@@ -71,9 +74,23 @@ Examples for generating embeddings and computing similarity:
 - Document embeddings: `python Models/3_EmbeddingModels/2_openai_docs.py`
 - Document similarity: `python Models/3_EmbeddingModels/3_document_similarity.py`
 
+### Prompt Templates & Research UI
+
+- **Generate prompt template JSON** (optional, already in `Prompts/template.json`):
+
+```bash
+python Prompts/prompt_generator.py
+```
+
+- **Run the Streamlit research explainer app**:
+
+```bash
+streamlit run Prompts/prompt_ui.py
+```
+
 ## Dependencies
 
-See `Models/requirements.txt` for the complete list of dependencies, including:
+See `requirements.txt` for the complete list of dependencies, including:
 
 - LangChain Core
 - Provider-specific integrations (OpenAI, Anthropic, Google, Hugging Face)
